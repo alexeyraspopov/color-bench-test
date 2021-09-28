@@ -8,13 +8,13 @@ import * as colorette from "colorette"
 
 new benchmark.Suite()
   .add("nanocolors", () => {
-    nanocolors.red(nanocolors.bold("bold") + " red")
+    nanocolors.red(nanocolors.bold("bold ") + nanocolors.yellow('yellow') + " red")
   })
   .add("picocolors", () => {
-    picocolors.red(picocolors.bold("bold") + " red")
+    picocolors.red(picocolors.bold("bold ") + picocolors.yellow('yellow') + " red")
   })
   .add("colorette", () => {
-    colorette.red(colorette.bold("bold") + " red")
+    colorette.red(colorette.bold("bold ") + colorette.yellow('yellow') + " red")
   })
   .on("cycle", ({ target: { name, hz } }) => {
     console.log(name.padEnd(14), Math.round(hz).toLocaleString(), "ops/sec")
